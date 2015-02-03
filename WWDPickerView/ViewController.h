@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WWDPickerView.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<WWDPickerViewDelegate>
 
 
 @end

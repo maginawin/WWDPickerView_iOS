@@ -14,6 +14,8 @@
 		0811A1041A80AE4A007A272B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0811A1031A80AE4A007A272B /* Images.xcassets */; };
 		0811A1071A80AE4A007A272B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0811A1051A80AE4A007A272B /* LaunchScreen.xib */; };
 		0811A1131A80AE4A007A272B /* WWDPickerViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0811A1121A80AE4A007A272B /* WWDPickerViewTests.m */; };
+		0811A11F1A80AF19007A272B /* WWDPickerViewWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 0811A11E1A80AF19007A272B /* WWDPickerViewWindow.m */; };
+		0811A1231A80B808007A272B /* WWDPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0811A1221A80B808007A272B /* WWDPickerView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,10 @@
 		0811A10C1A80AE4A007A272B /* WWDPickerViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WWDPickerViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0811A1111A80AE4A007A272B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0811A1121A80AE4A007A272B /* WWDPickerViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WWDPickerViewTests.m; sourceTree = "<group>"; };
+		0811A11D1A80AF19007A272B /* WWDPickerViewWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWDPickerViewWindow.h; sourceTree = "<group>"; };
+		0811A11E1A80AF19007A272B /* WWDPickerViewWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWDPickerViewWindow.m; sourceTree = "<group>"; };
+		0811A1211A80B808007A272B /* WWDPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWDPickerView.h; sourceTree = "<group>"; };
+		0811A1221A80B808007A272B /* WWDPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWDPickerView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,8 @@
 		0811A0F51A80AE4A007A272B /* WWDPickerView */ = {
 			isa = PBXGroup;
 			children = (
+				0811A1201A80B7F0007A272B /* WWDPickerView */,
+				0811A11C1A80AEC3007A272B /* PickerViewWindow */,
 				0811A0FA1A80AE4A007A272B /* AppDelegate.h */,
 				0811A0FB1A80AE4A007A272B /* AppDelegate.m */,
 				0811A0FD1A80AE4A007A272B /* ViewController.h */,
@@ -117,6 +125,24 @@
 				0811A1111A80AE4A007A272B /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0811A11C1A80AEC3007A272B /* PickerViewWindow */ = {
+			isa = PBXGroup;
+			children = (
+				0811A11D1A80AF19007A272B /* WWDPickerViewWindow.h */,
+				0811A11E1A80AF19007A272B /* WWDPickerViewWindow.m */,
+			);
+			name = PickerViewWindow;
+			sourceTree = "<group>";
+		};
+		0811A1201A80B7F0007A272B /* WWDPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				0811A1211A80B808007A272B /* WWDPickerView.h */,
+				0811A1221A80B808007A272B /* WWDPickerView.m */,
+			);
+			name = WWDPickerView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +248,8 @@
 				0811A0FF1A80AE4A007A272B /* ViewController.m in Sources */,
 				0811A0FC1A80AE4A007A272B /* AppDelegate.m in Sources */,
 				0811A0F91A80AE4A007A272B /* main.m in Sources */,
+				0811A11F1A80AF19007A272B /* WWDPickerViewWindow.m in Sources */,
+				0811A1231A80B808007A272B /* WWDPickerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
