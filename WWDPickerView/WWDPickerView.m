@@ -24,22 +24,6 @@
 
 @implementation WWDPickerView
 
-- (id)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
-        
-    }
-    return self;
-}
-
-- (id)initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        
-    }
-    return self;
-}
-
 - (id)initPickerViewWithFrame:(CGRect)frame data:(NSArray *)dataArray backgroundColor:(UIColor *)backgroundColor withShadow:(BOOL)shadow {
     self = [super initWithFrame:frame];
     if (self) {
@@ -55,7 +39,7 @@
         [self addSubview:bgView];
         
         // 添加底层
-        _baseView = [[UIView alloc] initWithFrame:CGRectMake(INTERVAL_LEFT_RIHGT, self.bounds.size.height / 4, self.bounds.size.width - 2 * INTERVAL_LEFT_RIHGT, self.bounds.size.height / 2 + 80.0)];
+        _baseView = [[UIView alloc] initWithFrame:CGRectMake(INTERVAL_LEFT_RIHGT, self.bounds.size.height / 4, self.bounds.size.width - 2 * INTERVAL_LEFT_RIHGT, self.bounds.size.height / 2)];
         _baseView.center = self.center;
         _baseView.backgroundColor = backgroundColor;
 //        _baseView.layer.masksToBounds = YES; // 会把阴影切掉
@@ -66,7 +50,7 @@
         [self addSubview:_baseView];
         
         // 添加选择器
-        _mPickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(_baseView.bounds.origin.x, _baseView.bounds.origin.y, _baseView.bounds.size.width, self.bounds.size.height / 2)];
+        _mPickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(_baseView.bounds.origin.x, _baseView.bounds.origin.y, _baseView.bounds.size.width, self.bounds.size.height / 2 - 40.0)];
         _mPickerView.delegate = self;
         _mPickerView.dataSource = self;
         _mPickerView.opaque = YES;
@@ -82,24 +66,8 @@
     return self;
 }
 
-- (void)setup {
-    UIView* bgView = [[UIView alloc] initWithFrame:self.bounds];
-    bgView.backgroundColor = [UIColor whiteColor];
-    bgView.alpha = 0.2;
-    [self addSubview:bgView];
-    _mPickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(20.0, self.bounds.size.height / 4, self.bounds.size.width - 40.0, self.bounds.size.height / 2)];
-    _mPickerView.delegate = self;
-    _mPickerView.dataSource = self;
-    _mPickerView.tintColor = [UIColor whiteColor];
-    _mPickerView.opaque = NO;
-    _mPickerView.backgroundColor = [UIColor whiteColor];
-    
-
-    
-    [self addSubview:_mPickerView];
-    self.backgroundColor = [UIColor clearColor];
-    self.center = CGPointMake(self.bounds.size.width / 2, self.bounds.size.height / 2);
-    _mPickerView.center = self.center;
+- (void)updatePickViewRow:(NSInteger)row inComponent:(NSInteger)component {
+    [_mPickerView selectRow:row inComponent:component animated:YES];
 }
 
 #pragma mark - Tools
@@ -121,7 +89,7 @@
 - (void)addTwoButton {
     // cancel button
     UIButton* cancelButton = [[UIButton alloc] init];
-    cancelButton.frame = CGRectMake(_baseView.bounds.origin.x, _baseView.bounds.size.height - 80.0, _baseView.bounds.size.width / 2, 60.0);
+    cancelButton.frame = CGRectMake(_baseView.bounds.origin.x, _mPickerView.bounds.size.height, _baseView.bounds.size.width / 2, _baseView.bounds.size.height - _mPickerView.bounds.size.height);
     [cancelButton setTitle:NSLocalizedString(@"cancel", @"Cancel") forState:UIControlStateNormal];
     [cancelButton setTitleColor:[UIColor colorWithRed:231/255.0 green:76/255.0 blue:60/255.0 alpha:1.0] forState:UIControlStateNormal];
     cancelButton.backgroundColor = [UIColor clearColor];
@@ -130,7 +98,7 @@
     [_baseView addSubview:cancelButton];
     // confirm button
     UIButton* confirmButton = [[UIButton alloc] init];
-    confirmButton.frame = CGRectMake(cancelButton.bounds.size.width, _baseView.bounds.size.height - 80.0, cancelButton.bounds.size.width, 60.0);
+    confirmButton.frame = CGRectMake(cancelButton.bounds.size.width, _mPickerView.bounds.size.height, cancelButton.bounds.size.width, _baseView.bounds.size.height - _mPickerView.bounds.size.height);
     confirmButton.backgroundColor = [UIColor clearColor];
     [confirmButton setTitle:NSLocalizedString(@"confirm", @"Confirm") forState:UIControlStateNormal];
     [confirmButton setTitleColor:[UIColor colorWithRed:0/255.0 green:122/255.0 blue:255/255.0 alpha:1.0]  forState:UIControlStateNormal];
@@ -189,7 +157,7 @@
 }
 
 - (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component {
-    return _mPickerView.bounds.size.height / 3;
+    return _mPickerView.bounds.size.height / 4;
 }
 
 @end

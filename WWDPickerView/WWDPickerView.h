@@ -24,4 +24,6 @@
 
 - (id)initPickerViewWithFrame:(CGRect)frame data:(NSArray*)dataArray backgroundColor:(UIColor*)backgroundColor withShadow:(BOOL)shadow;
 
+- (void)updatePickViewRow:(NSInteger)row inComponent:(NSInteger)component;
+
 @end

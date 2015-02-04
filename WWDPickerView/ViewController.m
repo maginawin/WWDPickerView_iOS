@@ -20,15 +20,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _test = [NSArray arrayWithObjects:@[@"1", @"2", @"3"], @[@"1"], @[@"7", @"6", @"5", @"4"], @[@"7", @"6", @"5", @"4"], nil];
-    _mPickerView = [[WWDPickerView alloc] initPickerViewWithFrame:CGRectMake(0, 0, 320, 480) data:_test backgroundColor:[UIColor whiteColor] withShadow:YES];
+    _mPickerView = [[WWDPickerView alloc] initPickerViewWithFrame:self.view.bounds data:_test backgroundColor:[UIColor whiteColor] withShadow:YES];
     _mPickerView.tag = 1;
     _mPickerView.delegate = self;
-    [self.view addSubview:_mPickerView];
-    
+    [self.view addSubview:_mPickerView];    
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-
+- (void)viewWillAppear:(BOOL)animated {
+    [_mPickerView updatePickViewRow:2 inComponent:2];
 }
 
 - (IBAction)show:(id)sender {
