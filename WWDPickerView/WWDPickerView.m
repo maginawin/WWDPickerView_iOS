@@ -46,7 +46,7 @@
         // 添加半透明背景
         UIView* bgView = [[UIView alloc] initWithFrame:self.bounds];
         bgView.backgroundColor = [UIColor whiteColor];
-        bgView.alpha = 0.8f;
+        bgView.alpha = 0.6f;
         [self addSubview:bgView];
         
         // 添加底层
@@ -69,8 +69,10 @@
         [_baseView addSubview:_mPickerView];
         
         // 添加二个按钮 取消 和 确定
+        [self addTwoButton];
         
-        
+        // 默认隐藏
+        self.hidden = YES;
     }
     return self;
 }
@@ -97,6 +99,7 @@
 
 #pragma mark - Tools
 
+// 添加阴影和边框
 - (void)strokeShadow {
     // 添加边框
     _baseView.layer.borderWidth = 1.0f;
@@ -107,6 +110,36 @@
     _baseView.layer.shadowOffset = CGSizeMake(2, 4);
     _baseView.layer.shadowOpacity = 0.8; // 不透明度
     _baseView.layer.shadowRadius = 4.0f;
+}
+
+// 添加 Confirm 和 Cancel 按钮
+- (void)addTwoButton {
+    // cancel button
+    UIButton* cancelButton = [[UIButton alloc] init];
+    cancelButton.frame = CGRectMake(_baseView.bounds.origin.x, _baseView.bounds.size.height - 80.0, _baseView.bounds.size.width / 2, 60.0);
+    [cancelButton setTitle:NSLocalizedString(@"cancel", @"Cancel") forState:UIControlStateNormal];
+    [cancelButton setTitleColor:[UIColor colorWithRed:231/255.0 green:76/255.0 blue:60/255.0 alpha:1.0] forState:UIControlStateNormal];
+    cancelButton.backgroundColor = [UIColor clearColor];
+    [cancelButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
+    [cancelButton addTarget:self  action:@selector(cancelButton) forControlEvents:UIControlEventTouchUpInside];
+    [_baseView addSubview:cancelButton];
+    // confirm button
+    UIButton* confirmButton = [[UIButton alloc] init];
+    confirmButton.frame = CGRectMake(cancelButton.bounds.size.width, _baseView.bounds.size.height - 80.0, cancelButton.bounds.size.width, 60.0);
+    confirmButton.backgroundColor = [UIColor clearColor];
+    [confirmButton setTitle:NSLocalizedString(@"confirm", @"Confirm") forState:UIControlStateNormal];
+    [confirmButton setTitleColor:[UIColor colorWithRed:0/255.0 green:122/255.0 blue:255/255.0 alpha:1.0]  forState:UIControlStateNormal];
+    [confirmButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
+    [confirmButton addTarget:self action:@selector(confirmButton) forControlEvents:UIControlEventTouchUpInside];
+    [_baseView addSubview:confirmButton];
+}
+
+- (void)cancelButton {
+    [_delegate cancelClick];
+}
+
+- (void)confirmButton {
+    [_delegate confirmClick];
 }
 
 #pragma mark - Delegate

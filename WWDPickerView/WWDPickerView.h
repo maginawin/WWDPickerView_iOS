@@ -13,6 +13,8 @@
 @required
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component;
+- (void)cancelClick;
+- (void)confirmClick;
 
 @end
 

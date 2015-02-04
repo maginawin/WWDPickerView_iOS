@@ -27,11 +27,31 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    
+
+}
+
+- (IBAction)show:(id)sender {
+    [UIView animateWithDuration:1.0 animations:^ {
+        _mPickerView.hidden = NO;
+    } completion:^ (BOOL finished) {
+        _mPickerView.hidden = NO;
+    }];
+}
+
+- (IBAction)hide:(id)sender {
+    _mPickerView.hidden = YES;
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     NSLog(@"test pick delegate, %d", pickerView.tag);
+}
+
+- (void)cancelClick {
+    _mPickerView.hidden = YES;
+}
+
+- (void)confirmClick {
+    _mPickerView.hidden = YES;
 }
 
 @end

@@ -16,6 +16,7 @@
 		0811A1131A80AE4A007A272B /* WWDPickerViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0811A1121A80AE4A007A272B /* WWDPickerViewTests.m */; };
 		0811A11F1A80AF19007A272B /* WWDPickerViewWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 0811A11E1A80AF19007A272B /* WWDPickerViewWindow.m */; };
 		0811A1231A80B808007A272B /* WWDPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0811A1221A80B808007A272B /* WWDPickerView.m */; };
+		08FA33541A81BCCF007426EF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 08FA33561A81BCCF007426EF /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,8 @@
 		0811A11E1A80AF19007A272B /* WWDPickerViewWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWDPickerViewWindow.m; sourceTree = "<group>"; };
 		0811A1211A80B808007A272B /* WWDPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWDPickerView.h; sourceTree = "<group>"; };
 		0811A1221A80B808007A272B /* WWDPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWDPickerView.m; sourceTree = "<group>"; };
+		08FA33551A81BCCF007426EF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		08FA33571A81BCD2007426EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +99,7 @@
 				0811A1001A80AE4A007A272B /* Main.storyboard */,
 				0811A1031A80AE4A007A272B /* Images.xcassets */,
 				0811A1051A80AE4A007A272B /* LaunchScreen.xib */,
+				08FA33501A81B618007426EF /* Localization */,
 				0811A0F61A80AE4A007A272B /* Supporting Files */,
 			);
 			path = WWDPickerView;
@@ -106,6 +110,7 @@
 			children = (
 				0811A0F71A80AE4A007A272B /* Info.plist */,
 				0811A0F81A80AE4A007A272B /* main.m */,
+				08FA33561A81BCCF007426EF /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -143,6 +148,14 @@
 				0811A1221A80B808007A272B /* WWDPickerView.m */,
 			);
 			name = WWDPickerView;
+			sourceTree = "<group>";
+		};
+		08FA33501A81B618007426EF /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Localization;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,6 +221,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 0811A0EA1A80AE4A007A272B;
 			productRefGroup = 0811A0F41A80AE4A007A272B /* Products */;
@@ -226,6 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0811A1021A80AE4A007A272B /* Main.storyboard in Resources */,
+				08FA33541A81BCCF007426EF /* Localizable.strings in Resources */,
 				0811A1071A80AE4A007A272B /* LaunchScreen.xib in Resources */,
 				0811A1041A80AE4A007A272B /* Images.xcassets in Resources */,
 			);
@@ -286,6 +301,15 @@
 				0811A1061A80AE4A007A272B /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		08FA33561A81BCCF007426EF /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				08FA33551A81BCCF007426EF /* zh-Hans */,
+				08FA33571A81BCD2007426EF /* Base */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -371,6 +395,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = WWDPickerView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -381,6 +406,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = WWDPickerView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -440,6 +466,7 @@
 				0811A1181A80AE4A007A272B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0811A1191A80AE4A007A272B /* Build configuration list for PBXNativeTarget "WWDPickerViewTests" */ = {
 			isa = XCConfigurationList;
@@ -448,6 +475,7 @@
 				0811A11B1A80AE4A007A272B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

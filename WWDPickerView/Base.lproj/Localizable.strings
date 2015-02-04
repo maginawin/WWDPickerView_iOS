@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  WWDPickerView
+
+  Created by maginawin on 15-2-4.
+  Copyright (c) 2015年 mycj.wwd. All rights reserved.
+*/
+"cancel" = "Cancel";
+"confirm" = "Confirm";
