@@ -14,7 +14,10 @@
 
 @property (nonatomic, strong) UIPickerView* mPickerView;
 @property (nonatomic, strong) UIView* baseView;
-@property (nonatomic ,strong) NSArray* dataArray;
+@property (nonatomic, strong) NSArray* dataArray;
+
+@property (nonatomic) NSInteger row;
+@property (nonatomic) NSInteger component;
 
 @end
 
@@ -42,6 +45,8 @@
     if (self) {
         self.backgroundColor = [UIColor clearColor];
         _dataArray = dataArray;
+        _row = 0;
+        _component = 0;
         
         // 添加半透明背景
         UIView* bgView = [[UIView alloc] initWithFrame:self.bounds];
@@ -135,17 +140,19 @@
 }
 
 - (void)cancelButton {
-    [_delegate cancelClick];
+    self.hidden = YES;
+    [_delegate wwdPickerViewCancel];
 }
 
 - (void)confirmButton {
-    [_delegate confirmClick];
+    self.hidden = YES;
+    [_delegate wwdPickerViewConfirm];
 }
 
 #pragma mark - Delegate
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    [_delegate pickerView:pickerView didSelectRow:row inComponent:component];
+    [_delegate wwdPickerViewDidSelectRow:row inComponent:component];
 }
 
 #pragma mark - Datasource

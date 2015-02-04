@@ -12,9 +12,9 @@
 
 @required
 
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component;
-- (void)cancelClick;
-- (void)confirmClick;
+- (void)wwdPickerViewDidSelectRow:(NSInteger)row inComponent:(NSInteger)component;
+- (void)wwdPickerViewCancel;
+- (void)wwdPickerViewConfirm;
 
 @end
 

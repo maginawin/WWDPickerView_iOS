@@ -11,6 +11,7 @@
 @interface ViewController ()
 
 @property (nonatomic, strong) WWDPickerView* mPickerView;
+@property (nonatomic, strong) NSArray* test;
 
 @end
 
@@ -18,8 +19,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSArray* test = [NSArray arrayWithObjects:@[@"1", @"2", @"3"], @[@"1"], @[@"7", @"6", @"5", @"4"], @[@"7", @"6", @"5", @"4"], nil];
-    _mPickerView = [[WWDPickerView alloc] initPickerViewWithFrame:CGRectMake(0, 0, 320, 480) data:test backgroundColor:[UIColor whiteColor] withShadow:YES];
+    _test = [NSArray arrayWithObjects:@[@"1", @"2", @"3"], @[@"1"], @[@"7", @"6", @"5", @"4"], @[@"7", @"6", @"5", @"4"], nil];
+    _mPickerView = [[WWDPickerView alloc] initPickerViewWithFrame:CGRectMake(0, 0, 320, 480) data:_test backgroundColor:[UIColor whiteColor] withShadow:YES];
     _mPickerView.tag = 1;
     _mPickerView.delegate = self;
     [self.view addSubview:_mPickerView];
@@ -42,16 +43,17 @@
     _mPickerView.hidden = YES;
 }
 
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    NSLog(@"test pick delegate, %d", pickerView.tag);
+- (void)wwdPickerViewDidSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    NSArray* rows = [_test objectAtIndex:component];
+    NSLog(@"%@ - - %d", [rows objectAtIndex:row], component);
 }
 
-- (void)cancelClick {
-    _mPickerView.hidden = YES;
+- (void)wwdPickerViewCancel {
+
 }
 
-- (void)confirmClick {
-    _mPickerView.hidden = YES;
+- (void)wwdPickerViewConfirm {
+
 }
 
 @end
